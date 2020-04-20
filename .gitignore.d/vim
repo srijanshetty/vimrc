@@ -1,0 +1,16 @@
+*
+!.vimrc
+!.vim
+!.vim/**/*
+.vim/undodir/*
+.vim/undodir/*
+.vim/plugged/*
+.vim/spell/*
+.vim/.netrwhist
+!.gitignore.d/
+!.gitignore.d/vim
+!.README.d/
+!.README.d/vim.md
+!.LICENSES.d/
+!.LICENSES.d/vim
+!.tern-project
