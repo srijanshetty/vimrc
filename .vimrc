@@ -358,8 +358,18 @@ set cmdheight=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ => My precious
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Taken from: https://old.reddit.com/r/vim/comments/g66mfb/concealing_two_characters_with_concat/
+" This converts <- into an arrow by using a conceal trick
+"
+" the last pattern returned is what match converts into something else, so first we convert < to arrow
+" and then - to space
+" last hi is for highlighting
+setlocal conceallevel=1
+call matchadd('Conceal', '<-\&<', 10, -1, {'conceal':'←'})
+call matchadd('Conceal', '<\zs-', 10, -1, {'conceal':' '})
+hi Conceal ctermbg=NONE ctermfg=red guifg=red
 
-" Redir output from vim commands to scratcht
+" Redir output from vim commands to scratch
 command! -nargs=1 -complete=command -bar -range Redir silent call functions#redir#Redir(<q-args>, <range>, <line1>, <line2>)
 
 " Remove trailing whitespace
