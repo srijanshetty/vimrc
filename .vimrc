@@ -79,6 +79,7 @@ nnoremap <leader>g :YcmDiags<CR>
 
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_file = 1
+let g:ycm_log_level = 'debug'
 
 " ALE
 """""""""""""
