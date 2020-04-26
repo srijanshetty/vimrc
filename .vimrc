@@ -95,6 +95,7 @@ nnoremap <silent> <leader>b :Buffers<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ => VIM user interface (UI)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colorscheme settings
 colorscheme default
 
 " Allow unsaved files
