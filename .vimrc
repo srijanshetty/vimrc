@@ -202,6 +202,9 @@ set fdo-=search
 let mapleader = " "
 let g:mapleader = " "
 
+" Paste should always re-indent
+nnoremap p ]p
+
 " The annoying jump over wrapped lines is removed
 nnoremap j gj
 nnoremap k gk
