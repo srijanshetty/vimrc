@@ -266,22 +266,8 @@ set autoread
 set history=9999
 set undolevels=9999
 
-" No swaps, this is usually helpful in two cases:
-" 1. Vim crashes before save                        - swap
-" 2. You use two instances of vim on the same file  - swap
-" 3. Protect against crash-during-write             - backups
-" 4. Goback to previous version                     - git + undo
-
-" set swapfile
-" set directory^=~/.vim/swap//
-
-" set writebackup
-" set nobackup                                        " but do not persist backup after successful write
-" set backupcopy=auto                                 " use rename-and-write-new method whenever safe
-" set backupdir^=~/.vim/backup//
-
 " If you use git + undo long enough, and have a durable laptop which doesn't
-" explode, you can do without swaps and backups, otherwise read above
+" explode, you can do without swaps and backups
 set noswapfile
 set nowb
 set nobackup
