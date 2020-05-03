@@ -300,7 +300,7 @@ let g:netrw_winsize=25                                  " Occupy 25% of the scre
 " My advice would be to use a dedicated fuzzy finder instead
 " set path+=**
 
-" Use '*' for fuzzy search
+" Use '*' for fuzzy search, and suggest completions on command line
 set wildmenu
 
 " Tab completion: mimics the behaviour of zsh
