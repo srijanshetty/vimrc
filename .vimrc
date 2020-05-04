@@ -221,7 +221,7 @@ filetype indent on
 let g:netrw_banner=0                                    " Don't show hideous banner
 let g:netrw_altv=1                                      " Open splits to the right
 let g:netrw_liststyle=3                                 " Tree view
-let g:netrw_winsize=25                                  " Occupy 25% of the screen
+let g:netrw_winsize=20                                  " Occupy 25% of the screen
 
 " Use '*' for fuzzy search, and suggest completions on command line
 set wildmenu
