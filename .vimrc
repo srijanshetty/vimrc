@@ -342,3 +342,36 @@ augroup configgroup
     au BufEnter *.vcsh set filetype=dosini
 augroup END
 "}}}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{ => Experimental
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Copy text on exit
+nmap <leader>y :w! /tmp/last_scratchpad.txt<CR>gg0vG$"+y:q!<CR>
+
+" Get the count of a search string
+nnoremap <leader>c <Esc>:%s///gn<CR>
+
+" Reselect yanked text
+nnoremap gy `[v`]
+
+" Taken from: https://old.reddit.com/r/vim/comments/g66mfb/concealing_two_characters_with_concat/
+" This converts <- into an arrow by using a conceal trick
+"
+" the last pattern returned is what match converts into something else, so first we convert < to arrow
+" and then - to space
+" last hi is for highlighting
+setlocal conceallevel=1
+call matchadd('Conceal', '<-\&<', 10, -1, {'conceal':'←'})
+call matchadd('Conceal', '<\zs-', 10, -1, {'conceal':' '})
+hi Conceal ctermbg=NONE ctermfg=red guifg=red
+
+" Taken from: https://old.reddit.com/r/vim/comments/gc40ac/mapping_for_navigating_vim_jumplist_and_changelist/
+" Jumplist navigation use C-v C-o/C-i to enter these sequences
+nnoremap <leader>o :set nomore \| jumps \| set more<cr>:norm ^O<left>
+nnoremap <leader>i :set nomore \| jumps \| set more<cr>:norm ^I<left>
+
+" Changelist navigation, keepjumps makes sure jumplist is not changed
+nnoremap <leader>; :changes<cr>:keepjumps norm g;<left><left>
+nnoremap <leader>, :changes<cr>:keepjumps norm g,<left><left>
+"}}}
