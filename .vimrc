@@ -264,8 +264,8 @@ set smartindent "Smart indent
 " Always show the status line
 set laststatus=2
 
-" Show editor mode
-set showmode
+" Do not show editor mode
+set noshowmode
 
 " Height of the command bar
 set cmdheight=2
