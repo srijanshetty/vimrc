@@ -114,7 +114,6 @@ set ruler
 " the absolute and relative numbering together to make jumps
 " easier
 set number
-" set relativenumber
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -141,12 +140,6 @@ set tm=500
 " Mark the current line
 set cursorline
 
-" For the vimdow
-set winwidth=84
-set winheight=5
-set winminheight=5
-set winheight=999
-
 " This prevents redraw for git-gutter/errors as signcolumn always is present
 set signcolumn=yes
 
@@ -168,9 +161,6 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
 
-" Show matching brackets when text indicator is over them
-set showmatch
-
 " Taken from www.vi-improved.org/recommendations
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
@@ -187,72 +177,9 @@ set foldenable
 " Only very nested blocks will be folded
 set foldlevelstart=2 " 99 means everything will open up
 
-" The maximum nesting level
-set foldnestmax=10
-
 " Don't open folds on search
 set fdo-=search
 "}}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{{{ => Key bindings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = " "
-let g:mapleader = " "
-
-" Paste should always re-indent
-nnoremap p ]p
-
-" The annoying jump over wrapped lines is removed
-nnoremap j gj
-nnoremap k gk
-
-"mapping for the windows
-nnoremap <C-j> <C-w>j
-nnoremap <C-h> <C-w>h
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-w>- :split<CR>
-nnoremap <C-w>\ :vsplit<CR>
-
-" Taken from @Tarrasch's vimrc
-" Edit vimrc
-nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
-nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" Exit
-nnoremap <leader>q :q!<CR>
-
-" In ex mode use <C-p> <C-n> for scroll
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-
-" for spelling options when writing
-nnoremap <silent> <leader>s :set spell!<CR>
-set spelllang=en_gb
-
-" Copy text on exit
-nmap <leader>y :w! /tmp/last_scratchpad.txt<CR>gg0vG$"+y:q!<CR>
-
-" after a search, this mapping removes the highlighing
-nnoremap <silent> <leader>/ :nohlsearch<CR>
-
-" white spaces
-nnoremap <silent> <leader>w :set list!<CR>
-
-" Paste from clipboard
-nnoremap <leader>v :set paste<CR>"+p:set nopaste<CR>
-
-" Sudo this file if opened without root priveileges
-nnoremap <leader>su <Esc>:w !sudo tee % >/dev/null<CR>
-
-" Get the count of a search string
-nnoremap <leader>c <Esc>:%s///gn<CR>
-
-" Reselect yanked text
-nnoremap gy `[v`]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups, and completions
@@ -295,10 +222,6 @@ let g:netrw_banner=0                                    " Don't show hideous ban
 let g:netrw_altv=1                                      " Open splits to the right
 let g:netrw_liststyle=3                                 " Tree view
 let g:netrw_winsize=25                                  " Occupy 25% of the screen
-
-" Useful to use :find as a fuzzy finder by recursing, but slows down 'gf'
-" My advice would be to use a dedicated fuzzy finder instead
-" set path+=**
 
 " Use '*' for fuzzy search, and suggest completions on command line
 set wildmenu
@@ -349,18 +272,44 @@ set cmdheight=2
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{{{ => My precious
+"{{{ => Key bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Taken from: https://old.reddit.com/r/vim/comments/g66mfb/concealing_two_characters_with_concat/
-" This converts <- into an arrow by using a conceal trick
-"
-" the last pattern returned is what match converts into something else, so first we convert < to arrow
-" and then - to space
-" last hi is for highlighting
-setlocal conceallevel=1
-call matchadd('Conceal', '<-\&<', 10, -1, {'conceal':'←'})
-call matchadd('Conceal', '<\zs-', 10, -1, {'conceal':' '})
-hi Conceal ctermbg=NONE ctermfg=red guifg=red
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = " "
+let g:mapleader = " "
+
+" Paste should always re-indent
+nnoremap p ]p
+
+" The annoying jump over wrapped lines is removed
+nnoremap j gj
+nnoremap k gk
+
+" Taken from @Tarrasch's vimrc
+" Edit vimrc
+nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Exit
+nnoremap <leader>q :q!<CR>
+
+" In ex mode use <C-p> <C-n> for scroll
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" white spaces
+nnoremap <silent> <leader>w :set list!<CR>
+
+" Paste from clipboard
+nnoremap <leader>v :set paste<CR>"+p:set nopaste<CR>
+
+" Sudo this file if opened without root priveileges
+nnoremap <leader>u <Esc>:w !sudo tee % >/dev/null<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{ => Functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Redir output from vim commands to scratch
 command! -nargs=1 -complete=command -bar -range Redir silent call functions#redir#Redir(<q-args>, <range>, <line1>, <line2>)
