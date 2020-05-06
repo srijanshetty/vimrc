@@ -44,7 +44,6 @@ Plug 'mbbill/undotree'                                                          
 Plug 'vim-scripts/taglist.vim', { 'on': 'TlistToggle' }                         " Tag browser
 
 " VCS Related
-Plug 'airblade/vim-gitgutter'                                                   " Gutter for vim
 Plug 'tpope/vim-fugitive'                                                       " Best Git integration
 
 " Completions and compilations
