@@ -58,7 +58,7 @@ Plug 'tpope/vim-apathy'                                                         
 Plug 'itchyny/lightline.vim'
 
 " Experimental
-Plug 'tpope/vim-dispatch'                                                       " Async command exec in vim
+" Plug 'tpope/vim-dispatch'                                                       " Async command exec in vim
 
 call plug#end()
 "}}}
