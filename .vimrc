@@ -81,6 +81,7 @@ let g:ycm_collect_identifiers_from_tags_file = 1
 let g:ycm_log_level = 'debug'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_auto_hover = ''
 
 " ALE
 """""""""""""
