@@ -162,9 +162,8 @@ set hlsearch
 set incsearch
 
 " Taken from www.vi-improved.org/recommendations
-if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
+if executable("rg")
+    set grepprg=rg\ -H\ --no-heading\ --vimgrep
 endif
 "}}}
 
