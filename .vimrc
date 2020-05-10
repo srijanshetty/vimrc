@@ -291,7 +291,7 @@ nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Exit
-nnoremap <leader>q :q!<CR>
+nnoremap <leader>q :q<CR>
 
 " In ex mode use <C-p> <C-n> for scroll
 cnoremap <C-p> <Up>
