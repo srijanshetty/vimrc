@@ -41,7 +41,7 @@ Plug 'wellle/targets.vim'                                                       
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --key-bindings --completion --no-update-rc' }
 Plug 'junegunn/fzf.vim'                                                         " fuzzy searching
 Plug 'mbbill/undotree'                                                          " Traverse the undotree
-Plug 'vim-scripts/taglist.vim', { 'on': 'TlistToggle' }                         " Tag browser
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }                              " Tags viewer
 
 " VCS Related
 Plug 'tpope/vim-fugitive'                                                       " Best Git integration
@@ -93,6 +93,10 @@ nmap <silent> ]w <Plug>(ale_next_wrap)
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+
+" Tagbar
+"""""""""""""
+let g:tagbar_left = 1
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
