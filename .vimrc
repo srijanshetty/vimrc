@@ -155,10 +155,6 @@ set updatetime=300
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ => Search Related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" When searching try to be smart about cases
-set smartcase
-set ignorecase
-
 " Highlight search results
 set hlsearch
 
