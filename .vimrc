@@ -58,7 +58,8 @@ Plug 'tpope/vim-apathy'                                                         
 Plug 'itchyny/lightline.vim'
 
 " Experimental
-" Plug 'tpope/vim-dispatch'                                                       " Async command exec in vim
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 
 call plug#end()
 "}}}
@@ -97,6 +98,12 @@ nnoremap <silent> <leader>b :Buffers<CR>
 " Tagbar
 """""""""""""
 let g:tagbar_left = 1
+
+" Vimwiki
+"""""""""""""
+let g:vimwiki_list = [
+            \{'path': '~/Documents/sandbox/personal.wiki'},
+            \]
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
