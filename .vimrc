@@ -303,7 +303,7 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
 " white spaces
-nnoremap <silent> <leader>w :set list!<CR>
+nnoremap <silent> <leader>4 :set list!<CR>
 
 " Paste from clipboard
 nnoremap <leader>v :set paste<CR>"+p:set nopaste<CR>
