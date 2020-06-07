@@ -152,7 +152,7 @@ set tm=500
 set cursorline
 
 " This prevents redraw for git-gutter/errors as signcolumn always is present
-set signcolumn=yes
+set signcolumn=number
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
