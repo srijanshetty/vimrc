@@ -311,6 +311,9 @@ nnoremap <leader>v :set paste<CR>"+p:set nopaste<CR>
 " Sudo this file if opened without root priveileges
 nnoremap <leader>u <Esc>:w !sudo tee % >/dev/null<CR>
 
+" Search visual selection
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ => Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
