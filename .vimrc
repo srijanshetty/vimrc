@@ -59,7 +59,7 @@ Plug 'itchyny/lightline.vim'
 
 " Experimental
 Plug 'vimwiki/vimwiki'
-Plug 'mattn/calendar-vim'
+Plug 'mattn/calendar-vim', { 'on': 'Calendar' }
 
 call plug#end()
 "}}}
