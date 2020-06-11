@@ -112,6 +112,10 @@ let g:vimwiki_list = [
 " Colorscheme settings
 colorscheme default
 
+" Open new windows on bottom and right
+set splitright
+set splitbelow
+
 " Allow unsaved files
 set hidden
 
