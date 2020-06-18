@@ -102,6 +102,7 @@ let g:tagbar_left = 1
 " Vimwiki
 """""""""""""
 let g:vimwiki_list = [
+            \{'path': '~/Documents/sandbox/general.wiki'},
             \{'path': '~/Documents/sandbox/personal.wiki'},
             \]
 "}}}
