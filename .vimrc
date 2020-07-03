@@ -376,7 +376,7 @@ nnoremap gy `[v`]
 " the last pattern returned is what match converts into something else, so first we convert < to arrow
 " and then - to space
 " last hi is for highlighting
-setlocal conceallevel=1
+setlocal conceallevel=2
 call matchadd('Conceal', '<-\&<', 10, -1, {'conceal':'←'})
 call matchadd('Conceal', '<\zs-', 10, -1, {'conceal':' '})
 hi Conceal ctermbg=NONE ctermfg=red guifg=red
