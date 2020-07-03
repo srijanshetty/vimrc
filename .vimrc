@@ -319,6 +319,9 @@ nnoremap <leader>u <Esc>:w !sudo tee % >/dev/null<CR>
 " Search visual selection
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+" Split command separated arguments on each line
+nnoremap <leader><leader>, V:s/[,)]/&\r/g <cr>='<
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ => Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
