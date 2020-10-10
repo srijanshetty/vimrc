@@ -350,11 +350,6 @@ augroup configgroup
                 \ if line("'\"") > 0 && line("'\"") <= line("$") |
                 \   exe "normal! g`\"" |
                 \ endif
-
-    " Additional Syntax Highlighting
-    au BufEnter *.mrconfig set filetype=dosini
-    au BufEnter *.git set filetype=dosini
-    au BufEnter *.vcsh set filetype=dosini
 augroup END
 "}}}
 
