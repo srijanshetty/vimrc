@@ -103,7 +103,6 @@ let g:tagbar_left = 1
 """""""""""""
 let g:vimwiki_list = [
             \{'path': '~/Documents/sandbox/general.wiki'},
-            \{'path': '~/Documents/sandbox/personal.wiki'},
             \]
 "}}}
 
@@ -313,12 +312,6 @@ nnoremap <silent> <leader>4 :set list!<CR>
 " Paste from clipboard
 nnoremap <leader>v :set paste<CR>"+p:set nopaste<CR>
 
-" Sudo this file if opened without root priveileges
-nnoremap <leader>u <Esc>:w !sudo tee % >/dev/null<CR>
-
-" Search visual selection
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-
 " Split command separated arguments on each line
 nnoremap <leader><leader>, V:s/[,)]/&\r/g <cr>='<
 
@@ -326,16 +319,9 @@ nnoremap <leader><leader>, V:s/[,)]/&\r/g <cr>='<
 "{{{ => Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Redir output from vim commands to scratch
-command! -nargs=1 -complete=command -bar -range Redir silent call functions#redir#Redir(<q-args>, <range>, <line1>, <line2>)
-
 " Remove trailing whitespace
 " Taken from www.vi-improved.org/recommendations
 nnoremap <Leader>fw :<C-U>call functions#stripwhitespace#StripTrailingWhitespace()<CR>
-
-" Qargs populates args list with quickfix search list
-" Taken from vim tips book
-command! -nargs=0 -bar Qargs execute 'args' functions#qargs#QuickfixFilenames()
 
 " make list-like commands more intuitive
 cnoremap <expr> <CR> functions#list#CCR()
@@ -356,8 +342,15 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ => Experimental
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Copy text on exit
-nmap <leader>y :w! /tmp/last_scratchpad.txt<CR>gg0vG$"+y:q!<CR>
+" Redir output from vim commands to scratch
+command! -nargs=1 -complete=command -bar -range Redir silent call functions#redir#Redir(<q-args>, <range>, <line1>, <line2>)
+
+" Qargs populates args list with quickfix search list
+" Taken from vim tips book
+command! -nargs=0 -bar Qargs execute 'args' functions#qargs#QuickfixFilenames()
+
+" Sudo this file if opened without root priveileges
+nnoremap <leader>u <Esc>:w !sudo tee % >/dev/null<CR>
 
 " Get the count of a search string
 nnoremap <leader>c <Esc>:%s///gn<CR>
