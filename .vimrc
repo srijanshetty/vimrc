@@ -319,6 +319,9 @@ nnoremap <leader><leader>, V:s/[,)]/&\r/g <cr>='<
 "{{{ => Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Redir output from vim commands to scratch
+command! -nargs=1 -complete=command -bar -range Redir silent call functions#redir#Redir(<q-args>, <range>, <line1>, <line2>)
+
 " Remove trailing whitespace
 " Taken from www.vi-improved.org/recommendations
 nnoremap <Leader>fw :<C-U>call functions#stripwhitespace#StripTrailingWhitespace()<CR>
@@ -342,12 +345,6 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{ => Experimental
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Redir output from vim commands to scratch
-command! -nargs=1 -complete=command -bar -range Redir silent call functions#redir#Redir(<q-args>, <range>, <line1>, <line2>)
-
-" Qargs populates args list with quickfix search list
-" Taken from vim tips book
-command! -nargs=0 -bar Qargs execute 'args' functions#qargs#QuickfixFilenames()
 
 " Sudo this file if opened without root priveileges
 nnoremap <leader>u <Esc>:w !sudo tee % >/dev/null<CR>
@@ -357,26 +354,6 @@ nnoremap <leader>c <Esc>:%s///gn<CR>
 
 " Reselect yanked text
 nnoremap gy `[v`]
-
-" Taken from: https://old.reddit.com/r/vim/comments/g66mfb/concealing_two_characters_with_concat/
-" This converts <- into an arrow by using a conceal trick
-"
-" the last pattern returned is what match converts into something else, so first we convert < to arrow
-" and then - to space
-" last hi is for highlighting
-setlocal conceallevel=2
-call matchadd('Conceal', '<-\&<', 10, -1, {'conceal':'←'})
-call matchadd('Conceal', '<\zs-', 10, -1, {'conceal':' '})
-hi Conceal ctermbg=NONE ctermfg=red guifg=red
-
-" Taken from: https://old.reddit.com/r/vim/comments/gc40ac/mapping_for_navigating_vim_jumplist_and_changelist/
-" Jumplist navigation use C-v C-o/C-i to enter these sequences
-nnoremap <leader>o :set nomore \| jumps \| set more<cr>:norm ^O<left>
-nnoremap <leader>i :set nomore \| jumps \| set more<cr>:norm ^I<left>
-
-" Changelist navigation, keepjumps makes sure jumplist is not changed
-nnoremap <leader>; :changes<cr>:keepjumps norm g;<left><left>
-nnoremap <leader>, :changes<cr>:keepjumps norm g,<left><left>
 
 "" Indent text object
 "" Useful for python-like indentation based programming lanugages
