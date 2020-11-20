@@ -36,6 +36,7 @@ Plug 'tpope/vim-abolish'                                                        
 Plug 'vim-scripts/visualrepeat'                                                 " Visual mode repeat
 Plug 'vim-scripts/matchit.zip'                                                  " % works for more languages
 Plug 'wellle/targets.vim'                                                       " Quotes, Separator, brace objects
+Plug 'michaeljsmith/vim-indent-object'                                          " Indentation as a text object
 
 " Buffers, Tags, QuickFix, Undo
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --key-bindings --completion --no-update-rc' }
@@ -354,88 +355,5 @@ nnoremap <leader>c <Esc>:%s///gn<CR>
 
 " Reselect yanked text
 nnoremap gy `[v`]
-
-"" Indent text object
-"" Useful for python-like indentation based programming lanugages
-func! s:indent_textobj(inner)
-    if getline('.') =~ '^\s*$'
-        let ln_start = s:detect_nearest_line()
-        let ln_end = ln_start
-    else
-        let ln_start = line('.')
-        let ln_end = ln_start
-    endif
-
-    let indent = indent(ln_start)
-    if indent > 0
-        while indent(ln_start) >= indent && ln_start > 0
-            let ln_start = prevnonblank(ln_start-1)
-        endwhile
-
-        while indent(ln_end) >= indent && ln_end <= line('$')
-            let ln_end = s:nextnonblank(ln_end+1)
-        endwhile
-    else
-        while indent(ln_start) == 0 && ln_start > 0 && getline(ln_start) !~ '^\s*$'
-            let ln_start -= 1
-        endwhile
-        while indent(ln_start) > 0 && ln_start > 0
-            let ln_start = prevnonblank(ln_start-1)
-        endwhile
-        while indent(ln_start) == 0 && ln_start > 0 && getline(ln_start) !~ '^\s*$'
-            let ln_start -= 1
-        endwhile
-
-        while indent(ln_end) == 0 && ln_end <= line('$') && getline(ln_end) !~ '^\s*$'
-            let ln_end += 1
-        endwhile
-        while indent(ln_end) > 0 && ln_end <= line('$')
-            let ln_end = s:nextnonblank(ln_end+1)
-        endwhile
-    endif
-
-    if a:inner || indent == 0
-        let ln_start = s:nextnonblank(ln_start+1)
-    endif
-
-    if a:inner
-        let ln_end = prevnonblank(ln_end-1)
-    else
-        let ln_end = ln_end-1
-    endif
-
-    if ln_end < ln_start
-        let ln_end = ln_start
-    endif
-
-    exe ln_end
-    normal! V
-    exe ln_start
-endfunc
-
-
-func! s:nextnonblank(lnum) abort
-    let res = nextnonblank(a:lnum)
-    if res == 0
-        let res = line('$')+1
-    endif
-    return res
-endfunc
-
-
-func! s:detect_nearest_line() abort
-    let lnum = line('.')
-    let nline = s:nextnonblank(lnum)
-    let pline = prevnonblank(lnum)
-    if abs(nline - lnum) > abs(pline - lnum) || getline(nline) =~ '^\s*$'
-        return pline
-    else
-        return nline
-    endif
-endfunc
-
-onoremap <silent>ii :<C-u>call <sid>indent_textobj(v:true)<CR>
-onoremap <silent>ai :<C-u>call <sid>indent_textobj(v:false)<CR>
-xnoremap <silent>ii :<C-u>call <sid>indent_textobj(v:true)<CR>
-xnoremap <silent>ai :<C-u>call <sid>indent_textobj(v:false)<CR>
 "}}}
+"
