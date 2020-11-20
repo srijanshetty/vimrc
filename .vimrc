@@ -58,10 +58,6 @@ Plug 'tpope/vim-apathy'                                                         
 " UI
 Plug 'itchyny/lightline.vim'
 
-" Experimental
-Plug 'vimwiki/vimwiki'
-Plug 'mattn/calendar-vim', { 'on': 'Calendar' }
-
 call plug#end()
 "}}}
 
