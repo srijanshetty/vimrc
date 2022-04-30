@@ -57,7 +57,6 @@ Plug 'tpope/vim-apathy'                                                         
 
 " UI
 Plug 'itchyny/lightline.vim'
-Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 "}}}
