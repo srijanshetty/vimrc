@@ -111,6 +111,8 @@ function! s:show_documentation()
   endif
 endfunction
 
+let g:coc_global_extensions = ['coc-css', 'coc-stylelint', 'coc-prettier', 'coc-tsserver', 'coc-tailwindcss', 'coc-deno', 'coc-rust-analyzer', 'coc-jedi', 'coc-docker', 'coc-spell-checker', 'coc-vimlsp', 'coc-sh']
+
 " FZF
 """""""""""""
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
