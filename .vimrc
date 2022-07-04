@@ -49,7 +49,7 @@ Plug 'tpope/vim-fugitive'                                                       
 
 " Completions and compilations
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 
 " Support for different filetypes
 Plug 'sheerun/vim-polyglot'                                                     " Syntax highlighthing
