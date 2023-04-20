@@ -112,7 +112,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-let g:coc_global_extensions = ['coc-css', 'coc-stylelint', 'coc-prettier', 'coc-tsserver', 'coc-tailwindcss', 'coc-deno', 'coc-rust-analyzer', 'coc-jedi', 'coc-docker', 'coc-vimlsp', 'coc-sh']
+let g:coc_global_extensions = ['coc-css', 'coc-stylelint', 'coc-pyright', 'coc-tsserver', 'coc-tailwindcss', 'coc-rust-analyzer', 'coc-docker', 'coc-vimlsp', 'coc-sh', 'coc-tailwindcss', 'coc-json']
 
 " FZF
 """""""""""""
