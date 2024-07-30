@@ -53,6 +53,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 " Support for different filetypes
 Plug 'sheerun/vim-polyglot'                                                     " Syntax highlighthing
 Plug 'tpope/vim-apathy'                                                         " figure out import statements
+Plug 'hjson/vim-hjson'                                                          " Hjson support
 
 " UI
 Plug 'itchyny/lightline.vim'
